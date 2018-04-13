@@ -1,0 +1,32 @@
+spring:
+  integration:
+    poller:
+      fixed-delay: 5000
+  cloud:
+    stream:
+      bindings:
+        output:
+
+          group: haliho
+          destination: demo
+          producer:
+
+            required-groups: haliho
+
+          content-type: application/json
+
+
+  application:
+    name: source-app
+
+server:
+  port: 8081
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ['*']
+

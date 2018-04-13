@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: sink-db-app
+
+  cloud:
+    stream:
+      bindings:
+        input:
+
+          group: haliho
+          destination: demo-processed
+   
+  datasource:
+     url: "jdbc:mariadb://localhost:3306/zaba"
+     username: zaba
+     password: zaba
+     driver-class-name: org.mariadb.jdbc.Driver
+     initialization-mode: always
+     
+  jpa:
+     hibernate:
+       ddl-auto: none
+           
+server:
+  port: 8083
+
+  
+
+  
+

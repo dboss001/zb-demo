@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: processor-app
+
+  cloud:
+    stream:
+      bindings:
+        output:
+        
+          group: haliho
+          destination: demo-processed
+          content-type: application/json
+          producer:
+            required-groups: haliho
+        input:
+        
+          group: haliho
+          destination: demo
+          content-type: application/json
+
+

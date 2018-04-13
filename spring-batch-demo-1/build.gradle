@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'spring-batch-demo-1'
+    version =  '0.0.1'
+}
+
+eclipse {
+    project {
+        name = 'spring-batch-demo-1'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-batch")
+    compile("org.springframework.cloud:spring-cloud-starter-task:1.2.2.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    //compile("org.hsqldb:hsqldb")
+    compile("org.mariadb.jdbc:mariadb-java-client")
+    testCompile("junit:junit")
+}
+
